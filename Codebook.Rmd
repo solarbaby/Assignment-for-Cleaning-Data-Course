@@ -1,0 +1,122 @@
+CodeBook
+========================================================
+
+## Data used
+
+The following data were read in to run_analysis.R:
+
+activity_labels.txt -- provides a key from activity value (1-6) and activity name (walking, walking_upstairs, walking_downstairs, sitting, standing, laying).  
+
+features.txt -- provides a key between column name in X_test and X_train and value name
+
+y_test.txt/y_train.txt -- activity value for testing and training data
+
+X_test.txt/X_train.txt -- 561 different measurements that each correspond to the activity given in y_test/y_train
+
+subject_test.txt/subject_train.txt -- which subject preformed each activity
+
+
+## Analysis process
+
+* Read in the data
+* Concatenate the testing/training data
+* Add names to each column of the X data set using the values given in features.txt
+* Name the Y column "Activity"
+* Add a column for "Subject" using subject_test.txt/subject_train.txt
+* Use "grep" to pick out Activities that included the words "mean" or "std"
+* Make a subset of the data containing only activities having to do with "mean" or "std"
+* Use "aggregate" to find averages for each variable based on Subject and Activity
+* Save the resulting tidy data set as "tidy_data_set.csv"
+
+
+## Variable names in output file
+The output file is called "tidy_data_set.csv"
+
+To make it easier to read the variables names I used CamelCase
+
+The following are the column names:
+
+
+|Column | Name|
+| ------------- |:-------------:|
+|1|                       Subject|
+|2|                      Activity|
+|3|                 tBodyAccmeanX|
+|4|                 tBodyAccmeanY|
+|5 |                tBodyAccmeanZ|
+|6  |                tBodyAccstdX|
+|7   |               tBodyAccstdY|
+|8    |              tBodyAccstdZ|
+|9     |         tGravityAccmeanX|
+|10     |        tGravityAccmeanY|
+|11      |       tGravityAccmeanZ|
+|12       |       tGravityAccstdX|
+|13        |      tGravityAccstdY|
+|14         |     tGravityAccstdZ|
+|15          |  tBodyAccJerkmeanX|
+|16           | tBodyAccJerkmeanY|
+|17            |tBodyAccJerkmeanZ|
+|18           |  tBodyAccJerkstdX|
+|19           |  tBodyAccJerkstdY|
+|20           |  tBodyAccJerkstdZ|
+|21           |    tBodyGyromeanX|
+|22           |    tBodyGyromeanY|
+|23           |    tBodyGyromeanZ|
+|24           |     tBodyGyrostdX|
+|25           |     tBodyGyrostdY|
+|26           |     tBodyGyrostdZ|
+|27           |tBodyGyroJerkmeanX|
+|28           |tBodyGyroJerkmeanY|
+|29           |tBodyGyroJerkmeanZ|
+|30           | tBodyGyroJerkstdX|
+|31           | tBodyGyroJerkstdY|
+|32           | tBodyGyroJerkstdZ|
+|33           |   tBodyAccMagmean|
+|34           |    tBodyAccMagstd|
+|35           |tGravityAccMagmean|
+|36           | tGravityAccMagstd|
+|37     |     tBodyAccJerkMagmean|
+|38     |      tBodyAccJerkMagstd|
+|39     |        tBodyGyroMagmean|
+|40     |         tBodyGyroMagstd|
+|41     |    tBodyGyroJerkMagmean|
+|42     |     tBodyGyroJerkMagstd|
+|43     |           fBodyAccmeanX|
+|44     |           fBodyAccmeanY|
+|45     |           fBodyAccmeanZ|
+|46     |            fBodyAccstdX|
+|47     |            fBodyAccstdY|
+|48     |            fBodyAccstdZ|
+|49     |       fBodyAccmeanFreqX|
+|50     |       fBodyAccmeanFreqY|
+|51     |       fBodyAccmeanFreqZ|
+|52     |       fBodyAccJerkmeanX|
+|53     |       fBodyAccJerkmeanY|
+|54     |       fBodyAccJerkmeanZ|
+|55     |        fBodyAccJerkstdX|
+|56     |        fBodyAccJerkstdY|
+|57     |        fBodyAccJerkstdZ|
+|58     |   fBodyAccJerkmeanFreqX|
+|59     |   fBodyAccJerkmeanFreqY|
+|60     |   fBodyAccJerkmeanFreqZ|
+|61     |          fBodyGyromeanX|
+|62     |          fBodyGyromeanY|
+|63     |          fBodyGyromeanZ|
+|64     |           fBodyGyrostdX|
+|65     |           fBodyGyrostdY|
+|66     |           fBodyGyrostdZ|
+|67     |      fBodyGyromeanFreqX|
+|68     |      fBodyGyromeanFreqY|
+|69     |      fBodyGyromeanFreqZ|
+|70     |         fBodyAccMagmean|
+|71     |          fBodyAccMagstd|
+|72     |     fBodyAccMagmeanFreq|
+|73     | fBodyBodyAccJerkMagmean|
+|74     |  fBodyBodyAccJerkMagstd|
+|75  |fBodyBodyAccJerkMagmeanFreq|
+|76   |      fBodyBodyGyroMagmean|
+|77   |       fBodyBodyGyroMagstd|
+|78   |  fBodyBodyGyroMagmeanFreq|
+|79   |  fBodyBodyGyroJerkMagmean|
+|80   |   fBodyBodyGyroJerkMagstd|
+|81 |fBodyBodyGyroJerkMagmeanFreq|
